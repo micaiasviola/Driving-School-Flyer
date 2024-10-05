@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    height: 300vh;
+    /* Para permitir rolagem */
+    margin: 0;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
+    /* Gradiente inicial */
+    background-size: 300% 300%;
+    /* Aumenta o tamanho do gradiente para suavizar a animação */
+    animation: gradientAnimation 10s ease infinite;
+    /* Animação contínua */
+    font-family: "Lora", serif;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+nav {
+
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 100px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    position: block;
+    /* Torna a navbar fixa no topo */
+    top: 0;
+    /* Fixa no topo da página */
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* Garante que a navbar fique sobre o conteúdo */
+    background: linear-gradient(120deg, #111000, #1c2a3d00, #201d01);
+}
+
+nav a {
+    font-size: 30px;
+
+}
+
+
+.blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #d8bc1d;
+}
+
+.nav-logo {
+    max-width: 100px;
+    position: left;
+    /* position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+}
+
+
+.link a {
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.link a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: #b6d81d;
+    transition: all 0.3s ease;
+}
+
+.link a:hover {
+    color: #728a09;
+}
+
+.link a:hover::after {
+    width: 70%;
+
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ccd81d;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Container principal do flyer */
+.flyer-container {
+    background-color: #222;
+    display: contents;
+    justify-content: center;
+    padding: 20px;
+    margin: 7%;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(218, 5, 5, 0.5);
+}
+
+.flyer-title {
+    padding: 4vh;
+
+}
+
+
+.card {
+    max-width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr); */
+    background-color: rgba(255, 190, 12, 0.753);
+    padding: 20px;
+    border-radius: 5px;
+    gap: 2rem;
+}
+
+.card1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+
+ul.list {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+ul.list li {
+
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+ul.list p {
+    color: #ccc;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+ul.list li:nth-of-type(1) p:nth-of-type(1) {
+    color: black;
+}
+
+.card2 {
+    width: 50%;
+}
+
+.card2 img {
+    max-width: 150px;
+}
+
+
+/* Cabeçalho com redes sociais */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.social-icon {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Efeitos de hover para os ícones sociais */
+.social-icon.instagram:hover {
+    background-color: #e4405f;
+}
+
+.social-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-icon.whatsapp:hover {
+    background-color: #1ca74a;
+}
+
+/* Estilo para o título e slogan */
+.flyer-title h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #f3f3f3;
+    font-weight: 700;
+}
+
+.flyer-title p {
+    font-size: 20px;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* Galeria de tatuagens */
+.tattoo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tattoo-image img {
+    width: 100%;
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 700px) {
+
+    /* Ajuste de espaçamentos em telas menores */
+    body {
+        padding: 0 1rem;
+        /* Adiciona um padding nas laterais */
+    }
+
+    nav {
+        position: fixed;
+        /* background: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00); */
+        /* flex-direction: column; */
+        /* Muda a direção do nav para coluna */
+        align-items: center;
+        /* Alinha os itens ao centro */
+        background: transparent;
+    }
+
+    .flyer-title {
+        padding-top: 5rem;
+    }
+
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .link a {
+        font-size: 0.8rem;
+        color: #d4d2b2;
+        font-weight: 600;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
+        /* Gradiente inicial */
+        padding: 0.3rem;
+        border-radius: 20px;
+    }
+
+    .nav-logo {
+        display: none;
+    }
+
+    .btn {
+        display: none;
+        /* Esconde botões em telas menores */
+    }
+
+    .tattoo-image {
+        transform: scale(0.8);
+        /* Reduz a escala das imagens */
+    }
+
+    .tattoo-gallery {
+        flex-direction: column;
+        /* Coloca a galeria em coluna em telas pequenas */
+        align-items: center;
+        /* Centraliza as imagens */
+    }
+
+    .tattoo-image img {
+        max-width: 90%;
+        /* Limita a largura máxima das imagens */
+        height: auto;
+        /* Mantém a proporção */
+    }
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .tattoo-gallery {
+        flex-direction: column;
+        /* Muda para coluna em telas menores */
+        gap: 20px;
+    }
+
+    .tattoo-image img {
+        max-width: 100%;
+        /* Aumenta a flexibilidade das imagens */
+    }
+}
