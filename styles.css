@@ -12,6 +12,7 @@
 img {
     width: 100%;
     display: flex;
+
 }
 
 a {
@@ -50,7 +51,7 @@ nav {
     width: 100%;
     margin-top: 10px;
     border-radius: 100px;
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,11 +68,15 @@ nav {
     z-index: 1000;
     /* Garante que a navbar fique sobre o conteúdo */
     background: linear-gradient(120deg, #111000, #1c2a3d00, #201d01);
+    
 }
 
 nav a {
+    
     font-size: 30px;
-
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    padding: 1rem;
 }
 
 
@@ -91,11 +96,12 @@ nav a {
 
 }
 
-.nav-links {
+ul.nav-links {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 3rem;
+    padding: 15px;
+    gap: 2rem;
 
 }
 
@@ -103,23 +109,27 @@ nav a {
     max-width: 400px;
 }
 
-.link a {
+li.link a {
     position: relative;
     overflow: hidden;
-    padding-bottom: 0.75rem;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    
     /* background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1)); */
     color: #fff;
     /* background-color: #b6d81d; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.link a::after {
+li.link a::after {
     content: "";
     position: absolute;
     height: 2px;
     width: 0;
-    bottom: 1;
+    bottom: 0;
     left: 0;
+    /* right: 0 */
     background-color: #b6d81d;
     transition: all 0.3s ease;
 }
@@ -128,15 +138,11 @@ nav a {
     color: #728a09;
 }
 
-/* .link a:hover::after {
+.link a:hover::after {
     width: 70%;
-}  */
+} 
 
-.link a.active {
-    background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
-    /* background-color: #7ca803; */
-    /* color: #fff; */
-}
+
 
 .link a.nav-no-hover:hover {
     color: #ccc;
@@ -173,24 +179,29 @@ nav a {
 
 
 section.card {
-    max-width: 90%;
+    max-width: 100%;
     margin: auto;
     justify-content: space-between;
     display: flex;
-     grid-template-columns: repeat(2, 1fr); 
-    background-color: rgba(255, 190, 12, 0.753);
-    padding: 20px;
+    flex-direction: column; 
+    align-items: center;
+    padding: 0.7rem;
     border-radius: 5px;
     gap: 2rem;
 }
-
+section#produtos{
+    margin-top: 0.8rem;
+    background-color: transparent;
+}
 .card1 {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    width: 50%;
+    width: 100%;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.048), rgb(122, 122, 72));
+    box-shadow: 1px 4px 10px 1px #444000;
+    border-radius: 10px;
+    
 }
-
 ul.list {
 
     list-style-type: none;
@@ -208,14 +219,23 @@ ul.list li {
 
 ul.list p {
     color: #ccc;
-    font-weight: 500;
+    font-weight: 600;
+    font-style: italic;
     font-size: 0.8rem;
 }
 
 ul.list li:nth-of-type(1) p:nth-of-type(1) {
     color: black;
 }
+.linha-horizontal {
+    border: none; /* Remove a borda padrão */
+    border-top: 2px solid #cccccc1c; /* Define a espessura e a cor da linha */
+    width: 100%; /* Faz com que a linha ocupe 100% da largura */
+    margin: 0; /* Remove qualquer espaçamento automático */
+    margin-top: 10px;
+    
 
+}
 .card2 {
     width: 50%;
     display: flex;
@@ -225,14 +245,36 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
 }
 
 .card2 img {
-    max-width: 150px;
+    width: 300px;
+    border-radius: 10px;
     align-self: center;
 }
-
-section#produtos{
-    margin-top: 2rem;
-    background-color: transparent;
+.produto-title{
+    background: linear-gradient(to right, #110e00, #271e01); /* Gradiente de amarelo escuro */
+    box-shadow: 1px 4px 10px 1px #444000;
+    padding: 0.8rem; 
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 100vh; Define a altura para ocupar toda a tela */
+    box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+    margin-top: 60px;
 }
+.produto-title h2{
+    font-size: 30px; 
+    color: #f0ec06;
+    font-weight: 700;
+}
+
+.produto-title p{
+    font-size: 1rem;
+    color: #ddd;
+    
+}
+
+
 
 
 /* Cabeçalho com redes sociais */
@@ -268,7 +310,7 @@ section#produtos{
 
 /* Estilo para o título e slogan */
 .flyer-title h1 {
-    font-size: 42px;
+    font-size: 30px;
     margin-bottom: 10px;
     color: #f3f3f3;
     font-weight: 700;
@@ -280,20 +322,6 @@ section#produtos{
     margin-bottom: 30px;
 }
 
-/* Galeria de tatuagens */
-.tattoo-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.tattoo-image img {
-    width: 100%;
-    max-height: 300px;
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
 
 @media (max-width: 700px) {
 
@@ -322,17 +350,23 @@ section#produtos{
         gap: 1rem;
     }
 
-    .link a {
+    /* .link a {
         font-size: 0.8rem;
         color: #d4d2b2;
         font-weight: 600;
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         /* background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1)); */
-        /* Gradiente inicial */
+        /* Gradiente inicial 
         padding: 0.3rem;
         border-radius: 20px;
         border-top-left-radius: 0px;
 
+    } */
+
+    .link a.active {
+        background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
+        /* background-color: #7ca803; */
+        /* color: #fff; */
     }
 
     .nav-logo {
@@ -344,37 +378,5 @@ section#produtos{
         /* Esconde botões em telas menores */
     }
 
-    .tattoo-image {
-        transform: scale(0.8);
-        /* Reduz a escala das imagens */
-    }
 
-    .tattoo-gallery {
-        flex-direction: column;
-        /* Coloca a galeria em coluna em telas pequenas */
-        align-items: center;
-        /* Centraliza as imagens */
-    }
-
-    .tattoo-image img {
-        max-width: 90%;
-        /* Limita a largura máxima das imagens */
-        height: auto;
-        /* Mantém a proporção */
-    }
-}
-
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .tattoo-gallery {
-        flex-direction: column;
-        /* Muda para coluna em telas menores */
-        gap: 20px;
-    }
-
-    .tattoo-image img {
-        max-width: 100%;
-        /* Aumenta a flexibilidade das imagens */
-    }
 }
