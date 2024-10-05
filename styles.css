@@ -172,12 +172,12 @@ nav a {
 }
 
 
-.card {
+section.card {
     max-width: 90%;
     margin: auto;
     justify-content: space-between;
     display: flex;
-    /* grid-template-columns: repeat(2, 1fr); */
+     grid-template-columns: repeat(2, 1fr); 
     background-color: rgba(255, 190, 12, 0.753);
     padding: 20px;
     border-radius: 5px;
@@ -218,10 +218,20 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
 
 .card2 {
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card2 img {
     max-width: 150px;
+    align-self: center;
+}
+
+section#produtos{
+    margin-top: 2rem;
+    background-color: transparent;
 }
 
 
