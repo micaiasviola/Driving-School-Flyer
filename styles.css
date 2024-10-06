@@ -171,13 +171,8 @@ li.link a::after {
     display: contents;
     align-items: center;
     justify-content: center;
-    padding-bottom: 0px;
-    margin-bottom: 0;
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(218, 5, 5, 0.5);
 }
-
 .flyer-title {
     padding: 1vh;
     font-family: "Cormorant Garamond", serif;
