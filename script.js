@@ -81,7 +81,7 @@ function startAutoScroll() {
                 left: 220, // Ajuste a quantidade de rolagem por intervalo
                 behavior: 'smooth'
             });
-        }, 3000); // Ajuste o intervalo de tempo
+        }, 10000); // Ajuste o intervalo de tempo
     }
 }
 
