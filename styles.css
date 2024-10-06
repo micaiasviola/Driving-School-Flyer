@@ -335,9 +335,9 @@ hr.linha-horizontal {
     width: 90%;
     background: linear-gradient(to right, #110e00, #000000);
     /* Gradiente de amarelo escuro */
-    box-shadow: 0 0 0px rgba(1, 1, 1, 0.8),
+    box-shadow: 0 0 1px rgba(226, 12, 12, 0.8),
         0 0 10px rgba(255, 255, 255, 0.6),
-        0 0 0px rgba(6, 6, 6, 0.4),
+        0 0 0px rgba(21, 21, 21, 0.4),
         0 0 0px rgb(0, 0, 0),
         0 0 10px rgba(27, 27, 26, 0.412);
     padding: 0.8rem;
@@ -387,17 +387,19 @@ body {
     /* Espaçamento em volta do carrossel */
 
 }
-
+.cartao h3 , .cartao p{
+    text-shadow: 0 1px rgb(199, 22, 22),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(50, 252, 0, 0.37),
+        0 0 40px rgba(33, 228, 15, 0.2);
+}
 .cartao {
     scroll-snap-align: center;
     /* Alinha o cartão ao centro ao parar a rolagem */
     background-color: transparent;
     /* Altere conforme necessário */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-        0 0 20px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(255, 255, 0, 0.37),
-        0 0 70px rgba(255, 255, 0, 0.2);
+    
 
     color: white;
     padding: 20px;
