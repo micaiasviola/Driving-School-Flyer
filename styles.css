@@ -329,8 +329,6 @@ hr.linha-horizontal {
     margin: 0;
     /* Remove qualquer espaçamento automático */
     margin-top: 1rem;
-
-
 }
 
 .produto-title {
@@ -351,7 +349,7 @@ hr.linha-horizontal {
     /* height: 100vh; Define a altura para ocupar toda a tela */
     box-sizing: border-box;
     /* Garante que o padding seja incluído no tamanho total */
-
+    user-select: none;
 }
 
 .produto-title h2 {
