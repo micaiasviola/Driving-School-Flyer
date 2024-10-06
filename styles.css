@@ -161,31 +161,15 @@ li.link a::after {
 }
 
 /* Container principal do flyer */
-.flyer-container { 
+.flyer-container {
     background-color: #222;
-    display: contents; /* contents, para esconder o elemento pai, cuidar dos filhos diretamente*/
+    display: contents;
+    /* contents, para esconder o elemento pai, cuidar dos filhos diretamente*/
     align-items: center;
     justify-content: center;
     text-align: center;
 
 }
-
-.flyer-title {
-    padding: 1vh;
-    font-family: "Cormorant Garamond", serif;
-    padding-top: 100px;
-}
-
-.blur {
-    position: absolute;
-    box-shadow: 0 0 1000px 50px #d8bc1d;
-}
-
-
-
-
-
-
 
 
 header.flyer-title h2 {
@@ -205,6 +189,18 @@ header.flyer-title h1 {
     /* animation: glowing 10s infinite; */
     margin: 0;
 }
+
+.flyer-title {
+    padding: 1vh;
+    font-family: "Cormorant Garamond", serif;
+    padding-top: 100px;
+}
+
+.blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #d8bc1d;
+}
+
 
 @keyframes glowing {
     0% {
@@ -227,16 +223,71 @@ header.flyer-title h1 {
 }
 
 
-section.card{
+section.card {
     max-width: 100%;
     margin: auto;
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 0.7rem;
     border-radius: 5px;
     gap: 2rem;
+}
+
+
+.orc-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.orc-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.lista-icones {
+    list-style-type: none;
+    /* Remove os marcadores padrão */
+    padding: 0;
+    /* Remove o padding padrão */
+    margin: 0;
+    /* Remove a margem padrão */
+    color: #ccc;
+    font-size: 10px;
+}
+
+.lista-icones li {
+    display: flex;
+    /* Usar flexbox para alinhar ícones e texto */
+    align-items: center;
+    /* Centraliza verticalmente os itens */
+    justify-content: flex-start;
+    /* Alinha os itens à esquerda */
+    margin-bottom: 10px;
+    /* Espaçamento entre os itens */
+}
+
+.lista-icones i {
+    margin-right: 8px;
+    /* Espaçamento entre o ícone e o texto */
+    font-weight: 1000;
+    color: rgb(8, 150, 8);
+    /* Cor do ícone, ajuste conforme necessário */
+    flex-shrink: 0;
+    /* Impede que o ícone encolha */
+}
+
+.lista-icones span {
+    flex: 1;
+    /* Permite que o texto ocupe o espaço restante */
+    text-align: left;
+    /* Alinha o texto à esquerda */
 }
 
 section#produtos {
@@ -244,19 +295,20 @@ section#produtos {
     background-color: transparent;
 }
 
-ul.list {
+.card1 ul.list {
 
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
-ul.list li {
+.card1 ul.list li {
 
     padding: 10px 0;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px inset #bea01d42;
+    border-top: 1px inset #bea01d42;
 }
 
 ul.list p {
@@ -266,14 +318,11 @@ ul.list p {
     font-size: 0.8rem;
 }
 
-ul.list li:nth-of-type(1) p:nth-of-type(1) {
-    color: black;
-}
 
 hr.linha-horizontal {
     border: none;
     /* Remove a borda padrão */
-    border-top: 2px solid #cccccc1c;
+    border-top: 2px solid #cccccc0a;
     /* Define a espessura e a cor da linha */
     width: 100%;
     /* Faz com que a linha ocupe 100% da largura */
@@ -284,25 +333,15 @@ hr.linha-horizontal {
 
 }
 
-.card2 {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.card2 img {
-    width: 300px;
-    border-radius: 10px;
-    align-self: center;
-}
-
 .produto-title {
     width: 90%;
-    background: linear-gradient(to right, #110e00, #271e01);
+    background: linear-gradient(to right, #110e00, #000000);
     /* Gradiente de amarelo escuro */
-    box-shadow: 1px 4px 10px 1px #444000;
+    box-shadow: 0 0 0px rgba(1, 1, 1, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 0px rgba(6, 6, 6, 0.4),
+        0 0 0px rgb(0, 0, 0),
+        0 0 10px rgba(27, 27, 26, 0.412);
     padding: 0.8rem;
     display: flex;
     border-radius: 10px;
@@ -312,7 +351,7 @@ hr.linha-horizontal {
     /* height: 100vh; Define a altura para ocupar toda a tela */
     box-sizing: border-box;
     /* Garante que o padding seja incluído no tamanho total */
-    
+
 }
 
 .produto-title h2 {
@@ -326,6 +365,73 @@ hr.linha-horizontal {
     color: #ddd;
 
 }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    /* Evita rolagem horizontal na página */
+}
+
+.carrossel {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Impede que os cartões se movam para baixo */
+    gap: 10px;
+    /* Espaçamento entre os cartões */
+    justify-content: flex-start;
+    /* Alinha os cartões à esquerda */
+    overflow-x: auto;
+    /* Permite rolar horizontalmente apenas se necessário */
+    scroll-snap-type: x mandatory;
+    /* Para um efeito de rolagem suave */
+    padding: 10px;
+    /* Espaçamento em volta do carrossel */
+
+}
+
+.cartao {
+    scroll-snap-align: center;
+    /* Alinha o cartão ao centro ao parar a rolagem */
+    background-color: transparent;
+    /* Altere conforme necessário */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 0, 0.37),
+        0 0 70px rgba(255, 255, 0, 0.2);
+
+    color: white;
+    padding: 20px;
+    /* Adicione mais espaço interno se necessário */
+    margin: 0 5px;
+    /* Reduz o espaçamento lateral dos cartões */
+    border-radius: 10px;
+    min-width: 160px;
+    /* Largura mínima dos cartões (ajustado para mobile) */
+    min-height: 250px;
+    /* Altura mínima dos cartões (ajustado para mobile) */
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.8),
+        0 0 1px rgba(255, 255, 255, 0.4),
+        0 0 1px rgba(255, 255, 255, 0.6),
+        0 0 1px rgba(255, 255, 0, 0.37),
+        0 0 1px rgba(255, 255, 0, 0.2);
+    user-select: none;
+    /* Impede a seleção de texto */
+    transition: transform 0.2s;
+    /* Suaviza a interação ao tocar */
+}
+
+.cartao:hover {
+    transform: scale(1.05);
+    /* Aumenta o cartão ao passar o mouse, se aplicável */
+}
+
+
+
+
+
+
 
 
 

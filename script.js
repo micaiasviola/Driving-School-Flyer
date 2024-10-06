@@ -63,3 +63,44 @@ document.addEventListener('scroll', () => {
         });
     }
 });
+
+
+
+
+
+const carrossel = document.getElementById('carrossel');
+let autoScroll; // Variável para armazenar o intervalo de rolagem automática
+let isScrolling = false; // Variável para verificar se a rolagem está ativa
+
+// Função para iniciar a rolagem automática
+function startAutoScroll() {
+    if (!isScrolling) {
+        isScrolling = true; // Marca a rolagem como ativa
+        autoScroll = setInterval(() => {
+            carrossel.scrollBy({
+                left: 220, // Ajuste a quantidade de rolagem por intervalo
+                behavior: 'smooth'
+            });
+        }, 3000); // Ajuste o intervalo de tempo
+    }
+}
+
+// Função para parar a rolagem automática
+function stopAutoScroll() {
+    clearInterval(autoScroll);
+    isScrolling = false; // Marca a rolagem como inativa
+}
+
+// Inicia a rolagem quando a página é carregada
+startAutoScroll();
+
+// Adiciona evento de clique para parar a rolagem quando um cartão é clicado
+carrossel.addEventListener('click', (event) => {
+    if (event.target.closest('.cartao')) {
+        stopAutoScroll(); // Para a rolagem se um cartão for clicado
+    }
+});
+
+// Retorna a rolagem ao carrossel se o mouse sair da área do carrossel
+carrossel.addEventListener('mouseleave', startAutoScroll);
+
