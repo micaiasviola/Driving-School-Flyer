@@ -8,25 +8,35 @@ window.addEventListener('scroll', function() {
     var navLinks = document.querySelectorAll('nav ul li a');
   
     let current = '';
-  
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-  
-      if (pageYOffset >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute('id');
-      }
-    });
-  
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
-    });
-  });
 
-  const links = document.querySelectorAll('nav ul li a');
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+      
+        // Verifica se a seção está visível na tela
+        if (window.scrollY >= sectionTop - sectionHeight / 3 && window.scrollY < sectionTop + sectionHeight - sectionHeight / 3) {
+            current = section.getAttribute('id'); // Pega o ID da seção visível
+        }
+    });
+
+    // Se não há nenhuma seção visível, não aplicamos a classe 'active'
+    if (current === '') {
+        navLinks.forEach(link => {
+            link.classList.remove('active'); // Remove 'active' de todos os links
+        });
+    } else {
+        // Atualiza as classes dos links
+        navLinks.forEach(link => {
+            link.classList.remove('active'); // Remove a classe 'active' de todos os links
+            if (link.getAttribute('href').includes(current)) { // Adiciona 'active' no link correspondente
+                link.classList.add('active');
+            }
+        });
+    }
+});
+
+
+const links = document.querySelectorAll('nav ul li a');
 
 links.forEach(link => {
   link.addEventListener('click', function() {
@@ -36,4 +46,20 @@ links.forEach(link => {
     // Adiciona a classe ao link clicado
     this.classList.add('nav-no-hover');
   });
+});
+
+document.addEventListener('scroll', () => {
+    const navLinks = document.querySelectorAll('.link a');
+    
+    if (window.scrollY === 0) {
+        // Está no topo da página
+        navLinks.forEach(link => {
+            link.classList.add('top-active');
+        });
+    } else {
+        // Rolou para fora do topo
+        navLinks.forEach(link => {
+            link.classList.remove('top-active');
+        });
+    }
 });
