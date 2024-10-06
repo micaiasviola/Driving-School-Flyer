@@ -202,7 +202,7 @@ header.flyer-title h1 {
         0 0 30px rgba(255, 255, 255, 0.4),
         0 0 40px rgba(255, 255, 0, 0.37),
         0 0 70px rgba(255, 255, 0, 0.2);
-    animation: glowing 10s infinite;
+    /* animation: glowing 10s infinite; */
     margin: 0;
 }
 
