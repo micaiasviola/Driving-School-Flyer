@@ -25,7 +25,7 @@ a {
 }
 
 body {
-    height: 300vh;
+    height: 1cqmin;
     /* Para permitir rolagem */
     margin: 0;
     background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
@@ -162,6 +162,7 @@ li.link a::after {
 
 /* Container principal do flyer */
 .flyer-container {
+    flex: 1;
     background-color: #222;
     display: contents;
     /* contents, para esconder o elemento pai, cuidar dos filhos diretamente*/
@@ -320,7 +321,7 @@ ul.list p {
 }
 
 
-hr.linha-horizontal {
+hr.horizontal-line {
     border: none;
     /* Remove a borda padrão */
     border-top: 2px solid #cccccc0a;
@@ -412,15 +413,19 @@ hr.linha-horizontal {
 
 .cartao {
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo em uma coluna */
-    justify-content: space-between; /* Garante que o conteúdo fique bem distribuído */
+    flex-direction: column;
+    /* Organiza o conteúdo em uma coluna */
+    justify-content: space-between;
+    /* Garante que o conteúdo fique bem distribuído */
     scroll-snap-align: center;
     /* Alinha o cartão ao centro ao parar a rolagem */
     background-color: transparent;
     color: white;
-    padding: 20px; /* Adicione mais espaço interno se necessário */
-    margin: 0 10px; /* Reduz o espaçamento lateral dos cartões */
-    
+    padding: 20px;
+    /* Adicione mais espaço interno se necessário */
+    margin: 0 10px;
+    /* Reduz o espaçamento lateral dos cartões */
+
     border-radius: 10px;
     min-width: 160px;
     /* Largura mínima dos cartões (ajustado para mobile) */
@@ -442,16 +447,16 @@ hr.linha-horizontal {
     /* Aumenta o cartão ao passar o mouse, se aplicável */
 }
 
-.cartao .lista-icones span{
+.cartao .lista-icones span {
     text-align: center;
     font-weight: 700;
     padding-top: 10px;
     font-size: 0.7rem;
-   
+
 }
 
 
-.cartao a{
+.cartao a {
     color: rgb(180, 179, 179);
     font-size: 0.9rem;
     text-align: center;
@@ -460,6 +465,54 @@ hr.linha-horizontal {
 
 }
 
+.footer {
+    /* position: flex; */
+    /* bottom: 0; */
+    width: 100%;
+    background-color: #000000;
+    /* display: contents; */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer {
+    /* background-color: red; */
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas iguais */
+    grid-auto-rows: auto; /* As linhas se ajustam automaticamente ao conteúdo */
+    height: 300px;
+    gap: 10px;
+    background-color: transparent;
+}
+
+.about-footer {
+    /* background-color: blue; */
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.contact-footer {
+    /* background-color: red; */
+    margin: auto;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.adress-footer {
+    /* background-color: yellow; */
+    grid-column: 2 / -1;
+    grid-row: 1;
+    color: white;
+    display: flex;
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: flex-start; /* Alinha horizontalmente à esquerda */
+
+    padding: 0 10px; /* Adiciona algum padding à esquerda e à direita */
+}
 
 .ri-whatsapp-line {
     color: rgba(255, 255, 255, 0.849);
@@ -511,11 +564,7 @@ hr.linha-horizontal {
 
 @media (max-width: 700px) {
 
-    /* Ajuste de espaçamentos em telas menores */
-    body {
-        padding: 0 1rem;
-        /* Adiciona um padding nas laterais */
-    }
+
 
     nav {
         position: fixed;
