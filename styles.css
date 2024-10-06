@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-html{
-    scroll-behavior: smooth; /*Para rolagem suave da tela*/
+html {
+    scroll-behavior: smooth;
+    /*Para rolagem suave da tela*/
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -70,11 +73,11 @@ nav {
     z-index: 1000;
     /* Garante que a navbar fique sobre o conteúdo */
     background: linear-gradient(120deg, #111000, #1c2a3d00, #201d01);
-    
+
 }
 
 nav a {
-    
+
     font-size: 30px;
     border-radius: 10px;
     border-top-left-radius: 0px;
@@ -117,7 +120,7 @@ li.link a {
     padding: 0.6rem;
     font-size: 0.8rem;
     font-weight: 800;
-    
+
     /* background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1)); */
     color: #fff;
     /* background-color: #b6d81d; */
@@ -142,7 +145,7 @@ li.link a::after {
 
 .link a:hover::after {
     width: 70%;
-} 
+}
 
 
 
@@ -166,17 +169,56 @@ li.link a::after {
 .flyer-container {
     background-color: #222;
     display: contents;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
-    margin: 7%;
+    padding-bottom: 0px;
+    margin-bottom: 0;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(218, 5, 5, 0.5);
 }
 
 .flyer-title {
-    padding: 4vh;
+    padding: 1vh;
+    font-family: "Cormorant Garamond", serif;
+}
 
+.flyer-title#home h2 {
+    margin-bottom: 0;
+    color: #ccc;
+}
+
+.flyer-title#home h1 {
+    color: rgb(160, 156, 106);
+    font-size: 4rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 0, 0.3),
+        0 0 70px rgba(255, 255, 0, 0.2);
+    animation: glowing 10s infinite;
+    margin: 0;
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.4),
+            0 0 20px rgba(255, 255, 0, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 30px rgba(255, 255, 255, 0.7),
+            0 0 40px rgba(255, 255, 0, 0.6);
+    }
+
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.4),
+            0 0 20px rgba(255, 255, 0, 0.3);
+    }
 }
 
 
@@ -185,16 +227,18 @@ section.card {
     margin: auto;
     justify-content: space-between;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     padding: 0.7rem;
     border-radius: 5px;
     gap: 2rem;
 }
-section#produtos{
+
+section#produtos {
     margin-top: 0.8rem;
     background-color: transparent;
 }
+
 .card1 {
     display: flex;
     align-items: flex-start;
@@ -202,8 +246,9 @@ section#produtos{
     background: linear-gradient(120deg, rgba(0, 0, 0, 0.048), rgb(122, 122, 72));
     box-shadow: 1px 4px 10px 1px #444000;
     border-radius: 10px;
-    
+
 }
+
 ul.list {
 
     list-style-type: none;
@@ -229,15 +274,21 @@ ul.list p {
 ul.list li:nth-of-type(1) p:nth-of-type(1) {
     color: black;
 }
+
 .linha-horizontal {
-    border: none; /* Remove a borda padrão */
-    border-top: 2px solid #cccccc1c; /* Define a espessura e a cor da linha */
-    width: 100%; /* Faz com que a linha ocupe 100% da largura */
-    margin: 0; /* Remove qualquer espaçamento automático */
+    border: none;
+    /* Remove a borda padrão */
+    border-top: 2px solid #cccccc1c;
+    /* Define a espessura e a cor da linha */
+    width: 100%;
+    /* Faz com que a linha ocupe 100% da largura */
+    margin: 0;
+    /* Remove qualquer espaçamento automático */
     margin-top: 10px;
-    
+
 
 }
+
 .card2 {
     width: 50%;
     display: flex;
@@ -251,30 +302,34 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
     border-radius: 10px;
     align-self: center;
 }
-.produto-title{
+
+.produto-title {
     width: 90%;
-    background: linear-gradient(to right, #110e00, #271e01); /* Gradiente de amarelo escuro */
+    background: linear-gradient(to right, #110e00, #271e01);
+    /* Gradiente de amarelo escuro */
     box-shadow: 1px 4px 10px 1px #444000;
-    padding: 0.8rem; 
+    padding: 0.8rem;
     display: flex;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     /* height: 100vh; Define a altura para ocupar toda a tela */
-    box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
+    box-sizing: border-box;
+    /* Garante que o padding seja incluído no tamanho total */
     margin-top: 60px;
 }
-.produto-title h2{
-    font-size: 30px; 
+
+.produto-title h2 {
+    font-size: 30px;
     color: #f0ec06;
     font-weight: 700;
 }
 
-.produto-title p{
+.produto-title p {
     font-size: 1rem;
     color: #ddd;
-    
+
 }
 
 
@@ -353,22 +408,23 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
         gap: 1rem;
     }
 
-    .link a{
+    .link a {
         background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
     }
+
     /* .link a {
         font-size: 0.8rem;
         color: #d4d2b2;
         font-weight: 600;
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         /* background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1)); */
-        /* Gradiente inicial 
+    /* Gradiente inicial 
         padding: 0.3rem;
         border-radius: 20px;
         border-top-left-radius: 0px;
 
     } */
-    
+
     li.link a::after {
         content: "";
         position: absolute;
@@ -380,16 +436,18 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
         background-color: transparent;
         transition: all 0.3s ease;
     }
+
     .link a.active {
-        background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(112, 112, 2));
+        background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(145, 145, 2));
         /* background-color: #7ca803; */
         /* color: #fff; */
     }
-    
+
     .link a.top-active {
         background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
-       
+
     }
+
     .nav-logo {
         display: none;
     }
