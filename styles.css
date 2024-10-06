@@ -183,12 +183,12 @@ li.link a::after {
     font-family: "Cormorant Garamond", serif;
 }
 
-.flyer-title#home h2 {
+header.flyer-title h2 {
     margin-bottom: 0;
     color: #ccc;
 }
 
-.flyer-title#home h1 {
+header.flyer-title h1 {
     color: rgb(160, 156, 106);
     font-size: 4rem;
     font-weight: 800;
