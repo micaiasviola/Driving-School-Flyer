@@ -32,7 +32,7 @@ body {
     /* Gradiente inicial */
     background-size: 300% 300%;
     /* Aumenta o tamanho do gradiente para suavizar a animação */
-    animation: gradientAnimation 10s ease infinite;
+    /* animation: gradientAnimation 10s ease infinite; */
     /* Animação contínua */
     font-family: "Lora", serif;
 }
@@ -82,12 +82,6 @@ nav a {
     border-radius: 10px;
     border-top-left-radius: 0px;
     padding: 1rem;
-}
-
-
-.blur {
-    position: absolute;
-    box-shadow: 0 0 1000px 50px #d8bc1d;
 }
 
 .nav-logo {
@@ -155,6 +149,7 @@ li.link a::after {
     cursor: default;
 }
 
+
 .btn {
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -166,20 +161,35 @@ li.link a::after {
 }
 
 /* Container principal do flyer */
-.flyer-container {
+.flyer-container { 
     background-color: #222;
-    display: contents;
+    display: contents; /* contents, para esconder o elemento pai, cuidar dos filhos diretamente*/
     align-items: center;
     justify-content: center;
     text-align: center;
+
 }
+
 .flyer-title {
     padding: 1vh;
     font-family: "Cormorant Garamond", serif;
+    padding-top: 100px;
 }
 
+.blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px #d8bc1d;
+}
+
+
+
+
+
+
+
+
 header.flyer-title h2 {
-    margin-bottom: 0;
+
     color: #ccc;
 }
 
@@ -190,7 +200,7 @@ header.flyer-title h1 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
         0 0 20px rgba(255, 255, 255, 0.6),
         0 0 30px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(255, 255, 0, 0.3),
+        0 0 40px rgba(255, 255, 0, 0.37),
         0 0 70px rgba(255, 255, 0, 0.2);
     animation: glowing 10s infinite;
     margin: 0;
@@ -200,7 +210,7 @@ header.flyer-title h1 {
     0% {
         text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
             0 0 10px rgba(255, 255, 255, 0.4),
-            0 0 20px rgba(255, 255, 0, 0.3);
+            0 0 20px rgba(255, 0, 255, 0.3);
     }
 
     50% {
@@ -217,7 +227,7 @@ header.flyer-title h1 {
 }
 
 
-section.card {
+section.card{
     max-width: 100%;
     margin: auto;
     justify-content: space-between;
@@ -234,16 +244,6 @@ section#produtos {
     background-color: transparent;
 }
 
-.card1 {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    background: linear-gradient(120deg, rgba(0, 0, 0, 0.048), rgb(122, 122, 72));
-    box-shadow: 1px 4px 10px 1px #444000;
-    border-radius: 10px;
-
-}
-
 ul.list {
 
     list-style-type: none;
@@ -256,7 +256,7 @@ ul.list {
 ul.list li {
 
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ffffff;
 }
 
 ul.list p {
@@ -270,7 +270,7 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
     color: black;
 }
 
-.linha-horizontal {
+hr.linha-horizontal {
     border: none;
     /* Remove a borda padrão */
     border-top: 2px solid #cccccc1c;
@@ -279,7 +279,7 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
     /* Faz com que a linha ocupe 100% da largura */
     margin: 0;
     /* Remove qualquer espaçamento automático */
-    margin-top: 10px;
+    margin-top: 1rem;
 
 
 }
@@ -312,7 +312,7 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
     /* height: 100vh; Define a altura para ocupar toda a tela */
     box-sizing: border-box;
     /* Garante que o padding seja incluído no tamanho total */
-    margin-top: 60px;
+    
 }
 
 .produto-title h2 {
@@ -394,9 +394,6 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
         background: transparent;
     }
 
-    .flyer-title {
-        padding-top: 5rem;
-    }
 
 
     .nav-links {
@@ -407,18 +404,7 @@ ul.list li:nth-of-type(1) p:nth-of-type(1) {
         background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
     }
 
-    /* .link a {
-        font-size: 0.8rem;
-        color: #d4d2b2;
-        font-weight: 600;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-        /* background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1)); */
-    /* Gradiente inicial 
-        padding: 0.3rem;
-        border-radius: 20px;
-        border-top-left-radius: 0px;
 
-    } */
 
     li.link a::after {
         content: "";

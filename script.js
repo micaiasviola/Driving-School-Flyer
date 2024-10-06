@@ -28,7 +28,7 @@ window.addEventListener('scroll', function () {
         // Atualiza as classes dos links
         navLinks.forEach(link => {
             link.classList.remove('active'); // Remove a classe 'active' de todos os links
-            if (link.getAttribute('href').includes(current)) { // Adiciona 'active' no link correspondente
+            if (link.getAttribute('id').includes(current)) { // Adiciona 'active' no link correspondente
                 link.classList.add('active');
             }
         });
