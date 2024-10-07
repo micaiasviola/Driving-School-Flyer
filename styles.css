@@ -163,7 +163,7 @@ li.link a::after {
 /* Container principal do flyer */
 .flyer-container {
     flex: 1;
-    background-color: #222;
+    background-color: #ffffffd5;
     display: contents;
     /* contents, para esconder o elemento pai, cuidar dos filhos diretamente*/
     align-items: center;
@@ -172,8 +172,10 @@ li.link a::after {
 
 }
 
-
-header.flyer-title h2 {
+.flyer-title p{
+    color: #ccc;
+}
+header.flyer-title h2{
 
     color: #ccc;
 }
