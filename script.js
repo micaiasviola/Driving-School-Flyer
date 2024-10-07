@@ -74,7 +74,7 @@ function startAutoScroll() {
         isScrolling = true; // Marca a rolagem como ativa
         autoScroll = setInterval(() => {
             carrossel.scrollBy({
-                left: 220, // Ajuste a quantidade de rolagem por intervalo
+                left: 180, // Ajuste a quantidade de rolagem por intervalo
                 behavior: 'smooth'
             });
         }, 10000); // Ajuste o intervalo de tempo (3000ms = 3 segundos)
