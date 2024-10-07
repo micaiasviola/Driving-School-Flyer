@@ -291,7 +291,7 @@ section.card {
 }
 
 .lista-icones span {
-    color: #000000;
+    color: black;
     flex: 1;
     /* Permite que o texto ocupe o espaço restante */
     text-align: left;
@@ -401,11 +401,11 @@ hr.horizontal-line {
 .cartao h3,
 .cartao p {
     font-size: 1rem;
-    text-shadow: 0 1px rgb(199, 22, 22),
+    /*text-shadow: 0 1px rgb(199, 22, 22),
         0 0 10px rgba(255, 255, 255, 0.6),
         0 0 20px rgba(255, 255, 255, 0.4),
         0 0 30px rgba(50, 252, 0, 0.37),
-        0 0 40px rgba(33, 228, 15, 0.2);
+        0 0 40px rgba(33, 228, 15, 0.2);*/
 }
 
 .carrossel .cartao:nth-child(4) p,
