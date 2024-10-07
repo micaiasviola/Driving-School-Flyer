@@ -25,7 +25,7 @@ a {
 }
 
 body {
-    height: 1cqmin;
+    height: 300vh;
     /* Para permitir rolagem */
     margin: 0;
     background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
@@ -479,7 +479,7 @@ hr.horizontal-line {
 .footer {
     /* background-color: red; */
     width: 80%;
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     /* 3 colunas iguais */
     grid-auto-rows: auto; /* As linhas se ajustam automaticamente ao conteúdo */

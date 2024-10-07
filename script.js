@@ -1,11 +1,13 @@
+// Função para ajustar a posição do fundo ao rolar
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY; // Posição de rolagem vertical
     document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Ajusta a posição do fundo com base na rolagem
 });
 
-window.addEventListener('scroll', function () {
-    var sections = document.querySelectorAll('section');
-    var navLinks = document.querySelectorAll('nav ul li a');
+// Função para atualizar a classe 'active' na navegação
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
 
     let current = '';
 
@@ -13,43 +15,40 @@ window.addEventListener('scroll', function () {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
 
+        // Ajusta o buffer para 50% da altura da seção
+        const sectionMid = sectionTop + sectionHeight / 2;
+
         // Verifica se a seção está visível na tela
-        if (window.scrollY >= sectionTop - sectionHeight / 3 && window.scrollY < sectionTop + sectionHeight - sectionHeight / 3) {
+        if (window.scrollY >= sectionMid - window.innerHeight / 2 && window.scrollY < sectionMid + window.innerHeight / 2) {
             current = section.getAttribute('id'); // Pega o ID da seção visível
         }
     });
 
-    // Se não há nenhuma seção visível, não aplicamos a classe 'active'
-    if (current === '') {
-        navLinks.forEach(link => {
-            link.classList.remove('active'); // Remove 'active' de todos os links
-        });
-    } else {
-        // Atualiza as classes dos links
-        navLinks.forEach(link => {
-            link.classList.remove('active'); // Remove a classe 'active' de todos os links
-            if (link.getAttribute('id').includes(current)) { // Adiciona 'active' no link correspondente
-                link.classList.add('active');
-            }
-        });
-    }
-});
-
-
-const links = document.querySelectorAll('nav ul li a');
-
-links.forEach(link => {
-    link.addEventListener('click', function () {
-        // Remove a classe de todos os links
-        links.forEach(l => l.classList.remove('nav-no-hover'));
-
-        // Adiciona a classe ao link clicado
-        this.classList.add('nav-no-hover');
+    // Atualiza as classes dos links
+    navLinks.forEach(link => {
+        link.classList.remove('active'); // Remove 'active' de todos os links
+        if (link.getAttribute('href') === `#${current}`) { // Adiciona 'active' no link correspondente
+            link.classList.add('active');
+        }
     });
 });
 
+
+// Função para gerenciar o clique nos links da navegação
+const links = document.querySelectorAll('nav ul li a');
+
+links.forEach(link => {
+    link.addEventListener('click', function (e) {
+        console.log("Link clicado:", this.href); // Log para depuração
+        // e.preventDefault(); // Remova este comentário se estiver usando preventDefault em outro lugar
+        links.forEach(l => l.classList.remove('nav-no-hover')); // Remove a classe de todos os links
+        this.classList.add('nav-no-hover'); // Adiciona a classe ao link clicado
+    });
+});
+
+// Verifica se a rolagem está no topo da página
 document.addEventListener('scroll', () => {
-    const navLinks = document.querySelectorAll('.link a');
+    const navLinks = document.querySelectorAll('nav ul li a');
 
     if (window.scrollY === 0) {
         // Está no topo da página
@@ -64,10 +63,7 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
-
-
-
+// Lógica do carrossel
 const carrossel = document.getElementById('carrossel');
 let autoScroll; // Variável para armazenar o intervalo de rolagem automática
 let isScrolling = false; // Variável para verificar se a rolagem está ativa
@@ -81,7 +77,7 @@ function startAutoScroll() {
                 left: 220, // Ajuste a quantidade de rolagem por intervalo
                 behavior: 'smooth'
             });
-        }, 0); // Ajuste o intervalo de tempo
+        }, 3000); // Ajuste o intervalo de tempo (3000ms = 3 segundos)
     }
 }
 
@@ -103,4 +99,3 @@ carrossel.addEventListener('click', (event) => {
 
 // Retorna a rolagem ao carrossel se o mouse sair da área do carrossel
 carrossel.addEventListener('mouseleave', startAutoScroll);
-
