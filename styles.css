@@ -28,7 +28,7 @@ body {
     height: 300vh;
     /* Para permitir rolagem */
     margin: 0;
-    background: linear-gradient(120deg, rgba(0, 0, 0, 1), rgb(56, 56, 1));
+    background-color: #fff;
     /* Gradiente inicial */
     background-size: 300% 300%;
     /* Aumenta o tamanho do gradiente para suavizar a animação */
@@ -36,7 +36,9 @@ body {
     /* Animação contínua */
     font-family: "Lora", serif;
 }
-
+p, h1, h2, i, a{
+    color: #101010;
+}
 @keyframes gradientAnimation {
     0% {
         background-position: 0% 50%;
@@ -173,11 +175,11 @@ li.link a::after {
 }
 
 .flyer-title p{
-    color: #ccc;
+    color: #000000;
 }
 header.flyer-title h2{
 
-    color: #ccc;
+    color: #000000;
 }
 
 header.flyer-title h1 {
@@ -288,6 +290,7 @@ section.card {
 }
 
 .lista-icones span {
+    color: #000000;
     flex: 1;
     /* Permite que o texto ocupe o espaço restante */
     text-align: left;
@@ -316,7 +319,7 @@ section#produtos {
 }
 
 ul.list p {
-    color: #ccc;
+    color: #080808;
     font-weight: 600;
     font-style: italic;
     font-size: 0.8rem;
@@ -360,20 +363,16 @@ hr.horizontal-line {
     font-size: 1.7rem;
     font-family: "Lora", serif;
     font-weight: 700;
-    color: rgb(115, 109, 109);
     font-weight: 700;
-    text-shadow: 0 0 0px rgba(255, 255, 255, 0.8),
-        0 0 20px #ff9a0c99,
-        0 0 30px hsl(235, 81%, 41%),
-        0 0 40px #21a4005e,
-        0 0 70px #bca80a33;
+    color: black;
+    
     /* animation: glowing 10s infinite; */
     margin: 0;
 }
 
 .produto-title p {
     font-size: 1rem;
-    color: #f2f2f2;
+    color: #000000;
 
 }
 
@@ -433,7 +432,7 @@ hr.horizontal-line {
     /* Largura mínima dos cartões (ajustado para mobile) */
     min-height: 260px;
     /* Altura mínima dos cartões (ajustado para mobile) */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8),
         0 0 1px rgba(255, 255, 255, 0.4),
         0 0 1px rgba(255, 255, 255, 0.6),
         0 0 1px rgba(255, 255, 0, 0.37),
@@ -481,7 +480,7 @@ hr.horizontal-line {
 .footer {
     /* background-color: red; */
     width: 80%;
-    display: none;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* 3 colunas iguais */
     grid-auto-rows: auto; /* As linhas se ajustam automaticamente ao conteúdo */
