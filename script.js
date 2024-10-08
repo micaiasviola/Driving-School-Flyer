@@ -83,7 +83,7 @@ function startAutoScroll() {
         autoScroll = setInterval(() => {
             // Verifica se o carrossel atingiu o fim
             if (carrossel.scrollLeft + carrossel.clientWidth >= carrossel.scrollWidth) {
-                // Se atingir o fim, volta ao início
+                // Se atingir o fim, volta ao início suavemente
                 carrossel.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
                 // Caso contrário, continua a rolar
@@ -114,3 +114,27 @@ carrossel.addEventListener('click', (event) => {
 
 // Retorna a rolagem ao carrossel se o mouse sair da área do carrossel
 carrossel.addEventListener('mouseleave', startAutoScroll);
+
+// Função para centralizar o cartão clicado
+function centralizarCartao(cartao) {
+    const carrosselWidth = carrossel.clientWidth; // Largura visível do carrossel
+    const cartaoWidth = cartao.offsetWidth; // Largura do cartão
+    const cartaoLeft = cartao.offsetLeft; // Posição do cartão no carrossel
+
+    // Calcula a posição para centralizar o cartão
+    const scrollPosition = cartaoLeft - (carrosselWidth - cartaoWidth) / 2;
+
+    // Move o carrossel para a posição calculada
+    carrossel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth' // Rolagem suave
+    });
+}
+
+// Adiciona o evento de clique aos cartões
+const cartoes = document.querySelectorAll('.cartao');
+cartoes.forEach(cartao => {
+    cartao.addEventListener('click', () => {
+        centralizarCartao(cartao); // Centraliza o cartão clicado
+    });
+});
