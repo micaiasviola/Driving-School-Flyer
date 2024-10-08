@@ -393,8 +393,9 @@ hr.horizontal-line {
     gap: 10px;
     /* Espaçamento entre os cartões */
     justify-content: flex-start;
+    scroll-behavior: smooth;
     /* Alinha os cartões à esquerda */
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     /* Permite rolar horizontalmente apenas se necessário */
     scroll-snap-type: x mandatory;
@@ -416,7 +417,7 @@ hr.horizontal-line {
     scroll-snap-align: center;
     /* Alinha o cartão ao centro ao parar a rolagem */
    
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 20px;
     /* Adicione mais espaço interno se necessário */
     margin: 0 10px;
