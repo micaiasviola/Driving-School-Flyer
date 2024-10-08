@@ -81,10 +81,12 @@ function startAutoScroll() {
     if (!isScrolling) {
         isScrolling = true; // Marca a rolagem como ativa
         autoScroll = setInterval(() => {
+            const scrollPosition = carrossel.scrollLeft + carrossel.clientWidth;
+
             // Verifica se o carrossel atingiu o fim
-            if (carrossel.scrollLeft + carrossel.clientWidth >= carrossel.scrollWidth) {
-                // Se atingir o fim, volta ao início suavemente
-                carrossel.scrollTo({ left: 0, behavior: 'smooth' });
+            if (scrollPosition >= carrossel.scrollWidth) {
+                // Se atingir o fim, volta ao início sem uma transição de scroll visível
+                carrossel.scrollLeft = 0; // Resetando a posição
             } else {
                 // Caso contrário, continua a rolar
                 carrossel.scrollBy({
