@@ -25,7 +25,7 @@ a {
 }
 
 body {
-    height: 100vh;
+    height: 300vh;
     /* Para permitir rolagem */
     margin: 0;
     background-color: #fff;
@@ -36,9 +36,15 @@ body {
     /* Animação contínua */
     font-family: "Lora", serif;
 }
-p, h1, h2, i, a{
+
+p,
+h1,
+h2,
+i,
+a {
     color: #101010;
 }
+
 @keyframes gradientAnimation {
     0% {
         background-position: 0% 50%;
@@ -52,14 +58,14 @@ p, h1, h2, i, a{
         background-position: 0% 50%;
     }
 }
-
+/* 
 nav {
     margin: 0;
     width: 100%;
-    
+
     border-radius: 100px;
     /* padding: 1rem; */
-    display: flex;
+  /*  display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
@@ -68,15 +74,15 @@ nav {
     box-sizing: border-box;
     position: absolute;
     /* Torna a navbar fixa no topo */
-    top: 0;
+   /* top: 0;
     /* Fixa no topo da página */
-    left: 0;
-    right: 0;
-    z-index: 1000;
+  /*  left: 0;
+    /* right: 0; */
+    /* z-index: 1000; */
     /* Garante que a navbar fique sobre o conteúdo */
-    background: linear-gradient(120deg, #111000, #1c2a3d00, #201d01);
+    /* background: linear-gradient(120deg, #111000, #1c2a3d00, #201d01); */
 
-}
+/* }  */
 
 nav a {
 
@@ -102,6 +108,7 @@ ul.nav-links {
     list-style: none;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 15px;
     gap: 2rem;
 
@@ -175,7 +182,7 @@ li.link a::after {
 
 }
 
-.flyer-title p{
+.flyer-title p {
     color: #000000;
 }
 
@@ -367,7 +374,7 @@ hr.horizontal-line {
     font-weight: 700;
     font-weight: 700;
     color: black;
-    
+
     /* animation: glowing 10s infinite; */
     margin: 0;
 }
@@ -399,6 +406,39 @@ hr.horizontal-line {
 
 }
 
+
+.cartao {
+    display: flex;
+    flex-direction: column;
+    /* Organiza o conteúdo em uma coluna */
+    justify-content: space-between;
+    /* Garante que o conteúdo fique bem distribuído */
+    scroll-snap-align: center;
+    /* Alinha o cartão ao centro ao parar a rolagem */
+   
+    color: white;
+    padding: 20px;
+    /* Adicione mais espaço interno se necessário */
+    margin: 0 10px;
+    /* Reduz o espaçamento lateral dos cartões */
+    background: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00);
+    border-radius: 10px;
+    min-width: 160px;
+    /* Largura mínima dos cartões (ajustado para mobile) */
+    min-height: 260px;
+    /* Altura mínima dos cartões (ajustado para mobile) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8),
+        0 0 1px rgba(255, 255, 255, 0.4),
+        0 0 1px rgba(255, 255, 255, 0.6),
+        0 0 1px rgba(255, 255, 0, 0.37),
+        0 0 1px rgba(255, 255, 0, 0.2);
+    user-select: none;
+    /* Impede a seleção de texto */
+    transition: transform 0.2s;
+    /* Suaviza a interação ao tocar */
+}
+
+
 .cartao h3,
 .cartao p {
     font-size: 1rem;
@@ -415,36 +455,7 @@ hr.horizontal-line {
     font-size: 1rem;
 }
 
-.cartao {
-    display: flex;
-    flex-direction: column;
-    /* Organiza o conteúdo em uma coluna */
-    justify-content: space-between;
-    /* Garante que o conteúdo fique bem distribuído */
-    scroll-snap-align: center;
-    /* Alinha o cartão ao centro ao parar a rolagem */
-    background-color: transparent;
-    color: white;
-    padding: 20px;
-    /* Adicione mais espaço interno se necessário */
-    margin: 0 10px;
-    /* Reduz o espaçamento lateral dos cartões */
 
-    border-radius: 10px;
-    min-width: 160px;
-    /* Largura mínima dos cartões (ajustado para mobile) */
-    min-height: 260px;
-    /* Altura mínima dos cartões (ajustado para mobile) */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8),
-        0 0 1px rgba(255, 255, 255, 0.4),
-        0 0 1px rgba(255, 255, 255, 0.6),
-        0 0 1px rgba(255, 255, 0, 0.37),
-        0 0 1px rgba(255, 255, 0, 0.2);
-    user-select: none;
-    /* Impede a seleção de texto */
-    transition: transform 0.2s;
-    /* Suaviza a interação ao tocar */
-}
 
 .cartao:hover {
     transform: scale(1.05);
@@ -485,7 +496,8 @@ hr.horizontal-line {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* 3 colunas iguais */
-    grid-auto-rows: auto; /* As linhas se ajustam automaticamente ao conteúdo */
+    grid-auto-rows: auto;
+    /* As linhas se ajustam automaticamente ao conteúdo */
     max-width: 100%;
     position: relative;
     display: none;
@@ -606,11 +618,14 @@ hr.horizontal-line {
 
     nav {
         position: fixed;
+        min-width: 100%;;
         /* background: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00); */
         /* flex-direction: column; */
         /* Muda a direção do nav para coluna */
         align-items: center;
+        justify-content: center;
         /* Alinha os itens ao centro */
+        display: ;
         background: transparent;
     }
 
