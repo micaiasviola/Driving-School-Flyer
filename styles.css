@@ -443,13 +443,14 @@ hr.horizontal-line {
 .cartao h3,
 .cartao p {
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 1000;
     /*text-shadow: 0 1px rgb(199, 22, 22),
         0 0 10px rgba(255, 255, 255, 0.6),
         0 0 20px rgba(255, 255, 255, 0.4),
         0 0 30px rgba(50, 252, 0, 0.37),
         0 0 40px rgba(33, 228, 15, 0.2);*/
 }
+
 
 .carrossel .cartao:nth-child(4) p,
 .carrossel .cartao:nth-child(5) p {
@@ -467,7 +468,7 @@ hr.horizontal-line {
     text-align: center;
     font-weight: 700;
     padding-top: 10px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
 }
 
