@@ -395,7 +395,7 @@ hr.horizontal-line {
     justify-content: flex-start;
     scroll-behavior: smooth;
     /* Alinha os cartões à esquerda */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     overflow-y: hidden;
     /* Permite rolar horizontalmente apenas se necessário */
     scroll-snap-type: x mandatory;
