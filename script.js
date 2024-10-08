@@ -63,28 +63,47 @@ document.addEventListener('scroll', () => {
     }
 });
 
-// Lógica do carrossel
 const carrossel = document.getElementById('carrossel');
-let autoScroll; // Variável para armazenar o intervalo de rolagem automática
-let isScrolling = false; // Variável para verificar se a rolagem está ativa
+const carrosselContent = carrossel.querySelector('.carrossel-content');
+let autoScroll;
+let isScrolling = false;
+let cloneCards = false; // Verifica se os cartões foram clonados
+
+// Função para clonar os cartões no final, criando o loop
+function cloneCardsIfNeeded() {
+    if (!cloneCards) {
+        const cards = carrossel.querySelectorAll('.cartao');
+        cards.forEach(card => {
+            const clone = card.cloneNode(true); // Clona o cartão
+            carrosselContent.appendChild(clone); // Adiciona o clone ao final
+        });
+        cloneCards = true; // Marca que os cartões foram clonados
+    }
+}
 
 // Função para iniciar a rolagem automática
 function startAutoScroll() {
     if (!isScrolling) {
-        isScrolling = true; // Marca a rolagem como ativa
+        isScrolling = true;
+        cloneCardsIfNeeded(); // Clona os cartões, se necessário
         autoScroll = setInterval(() => {
             carrossel.scrollBy({
                 left: 180, // Ajuste a quantidade de rolagem por intervalo
                 behavior: 'smooth'
             });
-        }, 10000); // Ajuste o intervalo de tempo (3000ms = 3 segundos)
+
+            // Verifica se chegou ao final da lista de cartões e reseta
+            if (carrossel.scrollLeft >= carrossel.scrollWidth / 2) {
+                carrossel.scrollLeft = 0; // Reseta para o início suavemente
+            }
+        }, 3000); // Tempo entre cada rolagem
     }
 }
 
 // Função para parar a rolagem automática
 function stopAutoScroll() {
     clearInterval(autoScroll);
-    isScrolling = false; // Marca a rolagem como inativa
+    isScrolling = false;
 }
 
 // Inicia a rolagem quando a página é carregada
