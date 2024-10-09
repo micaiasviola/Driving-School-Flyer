@@ -64,13 +64,12 @@ document.addEventListener('scroll', () => {
 });
 
 
-//Lógicaa do carrosel Home
-
-const carrosel_home
 
 
 
-// Lógica do carrossel Planos
+
+// Lógica do carrossel
+
 
 
 const carrossel = document.getElementById('carrossel');
