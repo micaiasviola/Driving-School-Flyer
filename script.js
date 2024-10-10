@@ -4,6 +4,7 @@ window.addEventListener('scroll', () => {
     document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Ajusta a posição do fundo com base na rolagem
 });
 
+
 // Função para atualizar a classe 'active' na navegação
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
@@ -61,10 +62,11 @@ document.addEventListener('scroll', () => {
     }
 });
 
-// Lógica do carrossel Home
+// Lógica do carrossel Home*****************************
 
 // Seleciona o botão
 const redirectButton = document.getElementById('carrossel-btn');
+
 
 // Função para redirecionar
 redirectButton.onclick = function () {
@@ -94,6 +96,9 @@ let currentIndex = 0; // Índice do slide atual
 let startTouchX = 0; // Posição inicial do toque
 let endTouchX = 0;   // Posição final do toque
 
+document.querySelector('.slide').addEventListener('scroll', (event) => {
+    event.stopPropagation(); // Impede que o evento de scroll afete o comportamento da rolagem suave
+});
 // Função para exibir o slide atual
 function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -126,7 +131,7 @@ showSlide(currentIndex);
 setInterval(nextSlide, 5000); // Muda o slide a cada 5 segundos
 
 
-// Lógica do carrossel Planos
+// Lógica do carrossel Planos*/******************* */
 
 const carrossel = document.getElementById('carrossel');
 let autoScroll; // Variável para armazenar o intervalo de rolagem automática
@@ -182,6 +187,10 @@ function centralizarCartao(cartao) {
         behavior: 'smooth' // Rolagem suave
     });
 }
+
+document.querySelector('.carrossel').addEventListener('scroll', (event) => {
+    event.stopPropagation(); // Impede que o evento de scroll afete o comportamento da rolagem suave
+});
 
 // Adiciona o evento de clique aos cartões
 const cartoes = document.querySelectorAll('.cartao');

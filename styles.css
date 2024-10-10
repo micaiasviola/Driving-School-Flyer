@@ -501,7 +501,7 @@ hr.horizontal-line {
     /* Adicione mais espaço interno se necessário */
     margin: 0 10px;
     /* Reduz o espaçamento lateral dos cartões */
-    background: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00);
+    background: linear-gradient(120deg, #F9CC0F, #fbff0000, #F9CC0F);
     border-radius: 10px;
     min-width: 160px;
     /* Largura mínima dos cartões (ajustado para mobile) */
@@ -540,7 +540,7 @@ hr.horizontal-line {
 
 .cartao:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgb(255, 230, 0),
+    box-shadow: 0 0 10px rgb(255, 221, 0),
         0 0 1px rgba(0, 0, 0, 0.4),
         0 0 1px rgba(0, 0, 0, 0.6),
         0 0 1px rgba(0, 0, 0, 0.6),
@@ -706,7 +706,8 @@ hr.horizontal-line {
 
     nav {
         position: fixed;
-        min-width: 100%;;
+        min-width: 100%;
+        z-index: 1000;
         /* background: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00); */
         /* flex-direction: column; */
         /* Muda a direção do nav para coluna */
