@@ -33,14 +33,12 @@ window.addEventListener('scroll', () => {
     });
 });
 
-
 // Função para gerenciar o clique nos links da navegação
 const links = document.querySelectorAll('nav ul li a');
 
 links.forEach(link => {
     link.addEventListener('click', function (e) {
         console.log("Link clicado:", this.href); // Log para depuração
-        // e.preventDefault(); // Remova este comentário se estiver usando preventDefault em outro lugar
         links.forEach(l => l.classList.remove('nav-no-hover')); // Remove a classe de todos os links
         this.classList.add('nav-no-hover'); // Adiciona a classe ao link clicado
     });
@@ -63,13 +61,13 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
+// Lógica do carrossel Home
 
 // Seleciona o botão
 const redirectButton = document.getElementById('carrossel-btn');
 
 // Função para redirecionar
-redirectButton.onclick = function() {
+redirectButton.onclick = function () {
     // Redireciona para o URL desejado
     window.location.href = 'https://www.instagram.com/autoescola.monteiro?igsh=MWp1ejlydWV1YWl0Nw==';  // Substitua pelo URL desejado
 };
@@ -79,12 +77,12 @@ const carousel = document.querySelector('.home-carrossel');
 const button = document.querySelector('.carrossel-btn');
 
 // Função para mostrar o botão ao clicar no carrossel
-carousel.addEventListener('click', function() {
+carousel.addEventListener('click', function () {
     button.style.display = 'block'; // Exibe o botão
 });
 
 // Função para ocultar o botão se o usuário clicar fora do carrossel
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (!carousel.contains(event.target)) { // Se clicou fora do carrossel
         button.style.display = 'none'; // Esconde o botão
     }
@@ -119,9 +117,7 @@ function nextSlide() {
 // Função para ir para o slide anterior
 function prevSlide() {
     currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Vai para o anterior ou volta ao último
-    showSlide(currentIndex);
 }
-
 
 // Inicia o carrossel com o primeiro slide
 showSlide(currentIndex);
@@ -130,15 +126,13 @@ showSlide(currentIndex);
 setInterval(nextSlide, 5000); // Muda o slide a cada 5 segundos
 
 
-// Lógica do carrossel
-
-
+// Lógica do carrossel Planos
 
 const carrossel = document.getElementById('carrossel');
 let autoScroll; // Variável para armazenar o intervalo de rolagem automática
 let isScrolling = false; // Variável para verificar se a rolagem está ativa
 
-// Função para iniciar a rolagem automática
+// Função para iniciar a rolagem automática infinita
 function startAutoScroll() {
     if (!isScrolling) {
         isScrolling = true; // Marca a rolagem como ativa
@@ -147,10 +141,10 @@ function startAutoScroll() {
 
             // Verifica se o carrossel atingiu o fim
             if (scrollPosition >= carrossel.scrollWidth) {
-                // Se atingir o fim, volta ao início sem uma transição de scroll visível
-                carrossel.scrollLeft = 0; // Resetando a posição
+                // Se atingir o fim, vai para o início com transição suave
+                carrossel.scrollLeft = 0;
             } else {
-                // Caso contrário, continua a rolar
+                // Caso contrário, continua rolando
                 carrossel.scrollBy({
                     left: 180, // Ajuste a quantidade de rolagem por intervalo
                     behavior: 'smooth'
@@ -160,19 +154,13 @@ function startAutoScroll() {
     }
 }
 
-// Função para parar a rolagem automática
-function stopAutoScroll() {
-    clearInterval(autoScroll);
-    isScrolling = false; // Marca a rolagem como inativa
-}
-
 // Inicia a rolagem quando a página é carregada
-startAutoScroll();
+window.addEventListener('load', startAutoScroll);
 
-// Adiciona evento de clique para parar a rolagem quando um cartão é clicado
+// Função para parar a rolagem automática se um cartão for clicado
 carrossel.addEventListener('click', (event) => {
     if (event.target.closest('.cartao')) {
-        stopAutoScroll(); // Para a rolagem se um cartão for clicado
+        clearInterval(autoScroll); // Para a rolagem se um cartão for clicado
     }
 });
 
