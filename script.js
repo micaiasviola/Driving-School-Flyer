@@ -64,7 +64,6 @@ document.addEventListener('scroll', () => {
 });
 
 
-//Lógicaa do carrosel Home
 
 // Seleciona o botão
 const redirectButton = document.getElementById('carrossel-btn');
@@ -131,7 +130,8 @@ showSlide(currentIndex);
 setInterval(nextSlide, 5000); // Muda o slide a cada 5 segundos
 
 
-// Lógica do carrossel Planos
+// Lógica do carrossel
+
 
 
 const carrossel = document.getElementById('carrossel');
