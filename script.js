@@ -1,3 +1,18 @@
+let clicked = false;
+
+function toggleScroll() {
+    if (!clicked) {
+        //rolar para o topo
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        clicked = true;
+    } else {
+        //se ja foi clicado, reseta o estado
+        clicked = false;
+    }
+}
+
+
+
 // Função para ajustar a posição do fundo ao rolar
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY; // Posição de rolagem vertical
