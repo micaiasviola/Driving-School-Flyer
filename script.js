@@ -166,11 +166,14 @@ window.addEventListener('load', startAutoScroll);
 carrossel.addEventListener('click', (event) => {
     if (event.target.closest('.cartao')) {
         clearInterval(autoScroll); // Para a rolagem se um cartão for clicado
+        isScrolling = false; // Atualiza o estado da rolagem
     }
 });
 
 // Retorna a rolagem ao carrossel se o mouse sair da área do carrossel
-carrossel.addEventListener('mouseleave', startAutoScroll);
+carrossel.addEventListener('mouseleave', () => {
+    startAutoScroll(); // Inicia a rolagem novamente
+});
 
 // Função para centralizar o cartão clicado
 function centralizarCartao(cartao) {
@@ -188,14 +191,15 @@ function centralizarCartao(cartao) {
     });
 }
 
-document.querySelector('.carrossel').addEventListener('scroll', (event) => {
-    event.stopPropagation(); // Impede que o evento de scroll afete o comportamento da rolagem suave
-});
-
 // Adiciona o evento de clique aos cartões
 const cartoes = document.querySelectorAll('.cartao');
 cartoes.forEach(cartao => {
     cartao.addEventListener('click', () => {
         centralizarCartao(cartao); // Centraliza o cartão clicado
     });
+});
+
+// Impede que o evento de scroll afete o comportamento da rolagem suave
+document.querySelector('.carrossel').addEventListener('scroll', (event) => {
+    event.stopPropagation();
 });
