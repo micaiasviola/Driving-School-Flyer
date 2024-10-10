@@ -272,7 +272,6 @@ section.card {
     width: 100%;
     /* O carrossel ocupa toda a largura da tela */
     max-width: 100%;
-    height: 250px;
     /* Defina uma altura fixa para o carrossel */
     overflow: hidden;
     /* Esconde as imagens que ultrapassam o limite */
@@ -327,7 +326,7 @@ section.card {
 .slide {
     flex: 0 0 100%;
     /* Faz com que cada slide ocupe 100% da largura */
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     /* Alinha as imagens ao centro */
@@ -340,15 +339,6 @@ section.card {
     /* Faz com que a imagem cubra o espaço sem distorcer */
     border-radius: 10px;
 }
-
-/* Para dispositivos móveis */
-@media (max-width: 768px) {
-    .home-carrossel {
-        height: 200px;
-        /* Menor altura para telas menores */
-    }
-}
-
 
 
 
