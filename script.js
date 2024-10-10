@@ -66,8 +66,69 @@ document.addEventListener('scroll', () => {
 
 //Lógicaa do carrosel Home
 
-const carrosel_home
+// Seleciona o botão
+const redirectButton = document.getElementById('carrossel-btn');
 
+// Função para redirecionar
+redirectButton.onclick = function() {
+    // Redireciona para o URL desejado
+    window.location.href = 'https://www.instagram.com/autoescola.monteiro?igsh=MWp1ejlydWV1YWl0Nw==';  // Substitua pelo URL desejado
+};
+
+// Seleciona o carrossel e o botão
+const carousel = document.querySelector('.home-carrossel');
+const button = document.querySelector('.carrossel-btn');
+
+// Função para mostrar o botão ao clicar no carrossel
+carousel.addEventListener('click', function() {
+    button.style.display = 'block'; // Exibe o botão
+});
+
+// Função para ocultar o botão se o usuário clicar fora do carrossel
+document.addEventListener('click', function(event) {
+    if (!carousel.contains(event.target)) { // Se clicou fora do carrossel
+        button.style.display = 'none'; // Esconde o botão
+    }
+});
+
+// Seleciona todos os slides
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0; // Índice do slide atual
+let startTouchX = 0; // Posição inicial do toque
+let endTouchX = 0;   // Posição final do toque
+
+// Função para exibir o slide atual
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+
+    // Atualiza a posição do carrossel (fazendo-o deslizar)
+    const slidesContainer = document.querySelector('.slides');
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`; // Desloca a largura dos slides
+}
+
+// Função para ir para o próximo slide
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length; // Vai para o próximo ou volta ao primeiro
+    showSlide(currentIndex);
+}
+
+// Função para ir para o slide anterior
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Vai para o anterior ou volta ao último
+    showSlide(currentIndex);
+}
+
+
+// Inicia o carrossel com o primeiro slide
+showSlide(currentIndex);
+
+// Intervalo automático para o carrossel (opcional)
+setInterval(nextSlide, 5000); // Muda o slide a cada 5 segundos
 
 
 // Lógica do carrossel Planos
