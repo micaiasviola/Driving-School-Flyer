@@ -363,15 +363,15 @@ section#home.card {
 
 .lista-icones li {
     display: flex;
-    font-size: .8rem;
+    font-size: 0.8rem;
     /* Usar flexbox para alinhar ícones e texto */
     align-items: center;
     /* Centraliza verticalmente os itens */
-    justify-content: flex-start;
     /* Alinha os itens à esquerda */
     margin-bottom: 10px;
     /* Espaçamento entre os itens */
 }
+
 
 .lista-icones i {
     margin-right: 8px;
@@ -578,7 +578,6 @@ hr.horizontal-line {
 
 
 .footer {
-    border-top-color: linear-gradient(120deg, #f1e900, #fbff0000, #eeda00);
     background-color: #000000;
     /* display: contents; */
     color: white;
@@ -606,7 +605,7 @@ hr.horizontal-line {
 .footer::before {
     content: '';
     position: absolute;
-    top: 1.8rem;
+    top: 1.2rem;
     bottom: 0;
     left: 50%;
     width: 1px;
@@ -617,7 +616,7 @@ hr.horizontal-line {
 .footer::after {
     content: '';
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 10%;
     width: 80%;
     height: 1px;
@@ -650,26 +649,38 @@ hr.horizontal-line {
     /* background-color: blue; */
 }
 
-.about-footer .lista-icones p {
-    color: white;
+.footer p {
+    color: rgb(255, 255, 255);
     font-size: 1rem;
     padding-bottom: 0.8rem;
     padding-top: 0.8rem;
 }
 
-.about-footer .lista-icones span {
-    color: white;
+.about-footer span {
+    color: rgb(255, 255, 255);
 }
 
-.about-footer .lista-icones i {
-    color: rgb(6, 6, 6);
-}
 
 .contact-footer {
     grid-column: 2;
+   
     /* background-color: green; */
 }
 
+.contact-footer .lista-icones{
+    color: green;
+    margin-top: 10px;
+    display: flex; /* Alinhar os ícones horizontalmente */
+    flex-direction: column; /* Colocar os ícones em coluna */
+    align-items: center; /* Centralizar os ícones */
+}
+
+.a {
+    user-select: none;
+    display: flex; /* Torna a div um contêiner flexível */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
 .adress-footer {
     grid-column: span 2;
     /* background-color: red; */
