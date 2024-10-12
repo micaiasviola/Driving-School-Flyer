@@ -80,16 +80,10 @@ window.addEventListener('scroll', () => {
         const sectionHeight = section.clientHeight;
 
         // Verifica se a seção está visível
-        if (window.scrollY >= sectionTop - window.innerHeight / 2 && window.scrollY < sectionTop + sectionHeight) {
+        if (window.scrollY + window.innerHeight >= sectionTop) {
             current = section.getAttribute('id'); // Pega o ID da seção visível
         }
     });
-
-    // Lógica para marcar o footer como ativo se a rolagem estiver no final da página
-    const footer = document.querySelector('footer');
-    if (window.scrollY + window.innerHeight >= document.body.scrollHeight - footer.offsetHeight) {
-        current = footer.getAttribute('id'); // Marca o footer como ativo
-    }
 
     // Atualiza as classes dos links
     navLinks.forEach(link => {
@@ -101,32 +95,45 @@ window.addEventListener('scroll', () => {
 });
 
 
+
 // Função para gerenciar o clique nos links da navegação
 const links = document.querySelectorAll('nav ul li a');
 
 links.forEach(link => {
     link.addEventListener('click', function (e) {
+        e.preventDefault(); // Evita o comportamento padrão do clique
+
+        const targetId = this.getAttribute('href'); // Captura o ID de destino
+
+        if (targetId === '#sobre') {
+            // Para o caso do link "Sobre", rola até o final da página
+            window.scrollTo({
+                top: document.body.scrollHeight, // Rola até o fundo da página
+                behavior: 'smooth' // Rolagem suave
+            });
+        } else {
+            // Para outros links, rola até o elemento específico
+            const targetElement = document.querySelector(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop, // Posição do elemento
+                behavior: 'smooth' // Rolagem suave
+            });
+        }
+
+        // Pausa o carrossel ao clicar em um link
+        pauseCarousels();
+
+        // Retoma o carrossel após 5 segundos (ajuste conforme necessário)
+        setTimeout(() => {
+            resumeCarousels();
+        }, 5000);
+
+        // Gerencia as classes do menu
         links.forEach(l => l.classList.remove('nav-no-hover')); // Remove a classe de todos os links
         this.classList.add('nav-no-hover'); // Adiciona a classe ao link clicado
     });
 });
 
-// Verifica se a rolagem está no topo da página
-document.addEventListener('scroll', () => {
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    if (window.scrollY === 0) {
-        // Está no topo da página
-        navLinks.forEach(link => {
-            link.classList.add('top-active');
-        });
-    } else {
-        // Rolou para fora do topo
-        navLinks.forEach(link => {
-            link.classList.remove('top-active');
-        });
-    }
-});
 
 
 // Lógica do carrossel Home*****************************
