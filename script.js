@@ -80,10 +80,16 @@ window.addEventListener('scroll', () => {
         const sectionHeight = section.clientHeight;
 
         // Verifica se a seção está visível
-        if (window.scrollY + window.innerHeight >= sectionTop) {
+        if (window.scrollY >= sectionTop - window.innerHeight / 2 && window.scrollY < sectionTop + sectionHeight) {
             current = section.getAttribute('id'); // Pega o ID da seção visível
         }
     });
+
+    // Lógica para marcar o footer como ativo se a rolagem estiver no final da página
+    const footer = document.querySelector('footer');
+    if (window.scrollY + window.innerHeight >= document.body.scrollHeight - footer.offsetHeight) {
+        current = footer.getAttribute('id'); // Marca o footer como ativo
+    }
 
     // Atualiza as classes dos links
     navLinks.forEach(link => {
@@ -93,7 +99,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
 
 
 // Função para gerenciar o clique nos links da navegação

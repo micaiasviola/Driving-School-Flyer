@@ -485,6 +485,7 @@ hr.horizontal-line {
     padding-top: 15px;
     padding-bottom: 15px;
     touch-action: auto;
+    margin-bottom: 10rem;
     /* Espaçamento em volta do carrossel */
 
 }
