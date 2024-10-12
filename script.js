@@ -1,15 +1,64 @@
-let clicked = false;
-
-function toggleScroll() {
-    if (!clicked) {
-        //rolar para o topo
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        clicked = true;
-    } else {
-        //se ja foi clicado, reseta o estado
-        clicked = false;
-    }
+//************** PAUSAR CARROSEL AO CLIQUE*/
+// Função para pausar o carrossel ao clicar em um link
+function pauseCarousels() {
+    const carousels = document.querySelectorAll('.swiper-container');
+    
+    carousels.forEach(carousel => {
+        if (carousel.swiper) {
+            carousel.swiper.autoplay.stop(); // Para a reprodução automática
+        }
+    });
 }
+
+// Função para retomar o carrossel
+function resumeCarousels() {
+    const carousels = document.querySelectorAll('.swiper-container');
+    
+    carousels.forEach(carousel => {
+        if (carousel.swiper) {
+            carousel.swiper.autoplay.start(); // Retoma a reprodução automática
+        }
+    });
+}
+
+// Função para gerenciar a rolagem suave até a seção
+function scrollToSection(targetId) {
+    const targetElement = document.querySelector(targetId);
+    const headerOffset = 70; // Ajuste para a altura do cabeçalho fixo, se houver
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset; // Ajuste para o cabeçalho
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth' // Rolagem suave
+    });
+}
+
+// Função para adicionar o evento de pausa e retomada aos links
+function setupLinkHandlers() {
+    const links = document.querySelectorAll('nav ul li a');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita o comportamento padrão do clique
+
+            pauseCarousels(); // Pausa o carrossel ao clicar no link
+            
+            const targetId = link.getAttribute('href'); // Pega o ID da seção
+            scrollToSection(targetId); // Chama a função para rolar até a seção
+
+            // Retoma o carrossel após 1 segundo (ajuste conforme necessário)
+            setTimeout(() => {
+                resumeCarousels();
+            }, 1000); // Ajuste o tempo conforme necessário
+        });
+    });
+}
+
+// Executa a função para configurar os eventos assim que o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    setupLinkHandlers();
+});
 
 
 
@@ -19,10 +68,9 @@ window.addEventListener('scroll', () => {
     document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Ajusta a posição do fundo com base na rolagem
 });
 
-
 // Função para atualizar a classe 'active' na navegação
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section, footer'); // Inclui 'footer' na seleção
     const navLinks = document.querySelectorAll('nav ul li a');
 
     let current = '';
@@ -31,11 +79,10 @@ window.addEventListener('scroll', () => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
 
-        // Ajusta o buffer para 50% da altura da seção
         const sectionMid = sectionTop + sectionHeight / 2;
 
-        // Verifica se a seção está visível na tela
-        if (window.scrollY >= sectionMid - window.innerHeight / 2 && window.scrollY < sectionMid + window.innerHeight / 2) {
+        // Verifica se a seção está visível
+        if (window.scrollY >= sectionTop - window.innerHeight / 2 && window.scrollY < sectionTop + sectionHeight) {
             current = section.getAttribute('id'); // Pega o ID da seção visível
         }
     });
@@ -43,8 +90,8 @@ window.addEventListener('scroll', () => {
     // Atualiza as classes dos links
     navLinks.forEach(link => {
         link.classList.remove('active'); // Remove 'active' de todos os links
-        if (link.getAttribute('href') === `#${current}`) { // Adiciona 'active' no link correspondente
-            link.classList.add('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active'); // Adiciona 'active' no link correspondente
         }
     });
 });
@@ -54,7 +101,6 @@ const links = document.querySelectorAll('nav ul li a');
 
 links.forEach(link => {
     link.addEventListener('click', function (e) {
-        console.log("Link clicado:", this.href); // Log para depuração
         links.forEach(l => l.classList.remove('nav-no-hover')); // Remove a classe de todos os links
         this.classList.add('nav-no-hover'); // Adiciona a classe ao link clicado
     });
@@ -76,6 +122,7 @@ document.addEventListener('scroll', () => {
         });
     }
 });
+
 
 // Lógica do carrossel Home*****************************
 

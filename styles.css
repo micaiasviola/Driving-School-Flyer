@@ -663,24 +663,31 @@ hr.horizontal-line {
 
 .contact-footer {
     grid-column: 2;
-   
+
     /* background-color: green; */
 }
 
-.contact-footer .lista-icones{
+.contact-footer .lista-icones {
     color: green;
     margin-top: 10px;
-    display: flex; /* Alinhar os ícones horizontalmente */
-    flex-direction: column; /* Colocar os ícones em coluna */
-    align-items: center; /* Centralizar os ícones */
+    display: flex;
+    /* Alinhar os ícones horizontalmente */
+    flex-direction: column;
+    /* Colocar os ícones em coluna */
+    align-items: center;
+    /* Centralizar os ícones */
 }
 
 .a {
     user-select: none;
-    display: flex; /* Torna a div um contêiner flexível */
-    flex-direction: column; /* Alinha os itens em coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
+    display: flex;
+    /* Torna a div um contêiner flexível */
+    flex-direction: column;
+    /* Alinha os itens em coluna */
+    align-items: center;
+    /* Centraliza os itens horizontalmente */
 }
+
 .adress-footer {
     grid-column: span 2;
     /* background-color: red; */
