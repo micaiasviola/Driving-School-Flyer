@@ -195,15 +195,10 @@ header.flyer-title h2 {
 
 header.flyer-title h1 {
     color: rgb(255, 238, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra */
     font-family: "Cormorant Garamond", serif;
     font-size: 4rem;
     font-weight: 800;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-        0 0 20px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(255, 255, 0, 0.37),
-        0 0 70px rgba(255, 255, 0, 0.2);
-    /* animation: glowing 10s infinite; */
     margin: 0;
 }
 
