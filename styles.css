@@ -195,7 +195,8 @@ header.flyer-title h2 {
 
 header.flyer-title h1 {
     color: rgb(255, 238, 1);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    /* Sombra */
     font-family: "Cormorant Garamond", serif;
     font-size: 4rem;
     font-weight: 800;
@@ -466,6 +467,12 @@ hr.horizontal-line {
 
 }
 
+#produtos.card {
+    display: flex;
+    flex-direction: column;
+    
+}
+
 
 .carrossel {
     display: flex;
@@ -485,7 +492,6 @@ hr.horizontal-line {
     padding-top: 15px;
     padding-bottom: 15px;
     touch-action: auto;
-    margin-bottom: 10rem;
     /* Espaçamento em volta do carrossel */
 
 }
@@ -688,6 +694,134 @@ hr.horizontal-line {
     grid-column: span 2;
     /* background-color: red; */
 }
+
+.planning {
+    overflow: hidden;
+    background-image: url(/img/rrreplicate\(1\).svg);
+    width: 90%;
+    height: auto;
+    /* Ajuste dinâmico de altura conforme o conteúdo */
+    margin: 100px auto 0;
+    border: 2px solid rgb(250, 250, 250);
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que as divs quebrem de linha */
+    justify-content: center;
+    /* Centraliza o conteúdo */
+    align-items: center;
+    /* Alinha verticalmente */
+    padding: 20px;
+    /* Espaçamento interno */
+}
+
+.planning svg {
+    z-index: -1000;
+    width: 100%;
+    height: 100%;
+}
+
+.planning-desc {
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px;
+    /* Espaçamento entre as divs */
+    width: 100%;
+    /* Ocupa toda a largura em telas pequenas */
+    max-width: 90%;
+    /* Define um limite de largura em telas grandes */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Transparência no fundo */
+    border: 1px solid rgba(131, 131, 131, 0.048);
+}
+
+.planning-desc p {
+    margin: 0.2rem;
+    word-wrap: break-word;
+    /* Permite que palavras muito longas quebrem e se ajustem à largura */
+    word-break: break-word;
+    /* Força a quebra de palavras longas */
+    overflow-wrap: break-word;
+    /* Quebra linhas quando necessário para evitar overflow */
+    white-space: normal;
+    /* Permite a quebra de linha automática */
+}
+
+
+.info-container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffff;
+    /* Fundo branco para os itens */
+    border-radius: 15px;
+    /* Cantos arredondados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+    /* Cor do título */
+}
+
+.info-item {
+    margin: 15px 0;
+    /* Espaçamento entre os itens */
+    padding: 15px;
+    border-left: 5px solid #006eff75;
+    /* Linha lateral para destaque */
+    background-color: #e6fae77e;
+    /* Fundo suave para os itens */
+    border-radius: 10px;
+    /* Cantos arredondados nos itens */
+}
+
+.title {
+    display: flex;
+    /* Usar flexbox para alinhamento */
+    align-items: center;
+    /* Alinha verticalmente a imagem e o texto */
+    justify-content: space-evenly;
+    margin: 10px 0;
+    /* Margem em cima e embaixo */
+}
+
+
+.title img {
+    flex-shrink: 0;
+    /* Impede que a imagem encolha */
+}
+
+.info-item h2 {
+    color: #333;
+    /* Cor do subtítulo */
+}
+
+.info-item p {
+    color: #555;
+    /* Cor do texto */
+    line-height: 1.6;
+    /* Espaçamento entre linhas */
+}
+
+
+
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+    /* Cor do texto do rodapé */
+}
+
+
 
 
 

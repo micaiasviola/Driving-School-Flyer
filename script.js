@@ -62,15 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Função para ajustar a posição do fundo ao rolar
+// ***************Função para ajustar a posição do fundo ao rolar
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY; // Posição de rolagem vertical
     document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Ajusta a posição do fundo com base na rolagem
 });
 
-// Função para atualizar a classe 'active' na navegação
+//***************** */ Função para atualizar a classe 'active' na navegação
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section, footer'); // Inclui 'footer' na seleção
+    const sections = document.querySelectorAll('section, footer, div.planning'); // Inclui 'footer' na seleção
     const navLinks = document.querySelectorAll('nav ul li a');
 
     let current = '';
