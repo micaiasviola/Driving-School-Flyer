@@ -198,7 +198,18 @@ const button = document.querySelector('.carrossel-btn');
 // Função para mostrar o botão ao clicar no carrossel
 carousel.addEventListener('click', function () {
     button.style.display = 'block'; // Exibe o botão
+    button.classList.remove('hidden'); // Garante que a classe "hidden" não esteja presente
+
+    // Define um temporizador para ocultar o botão após 5 segundos
+    setTimeout(function () {
+        button.classList.add('hidden'); // Adiciona a classe "hidden" para começar a transição
+        // Opcional: Esconder completamente após a transição
+        setTimeout(function () {
+            button.style.display = 'none'; // Oculta o botão do DOM
+        }, 500); // Tempo da transição
+    }, 5000);
 });
+
 
 // Função para ocultar o botão se o usuário clicar fora do carrossel
 document.addEventListener('click', function (event) {

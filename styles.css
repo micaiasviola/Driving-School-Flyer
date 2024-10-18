@@ -301,6 +301,7 @@ section#home.card {
 /* Botão que aparecerá ao clicar no carrossel */
 .carrossel-btn {
     display: none;
+    
     /* Inicialmente o botão está oculto */
     position: absolute;
     bottom: 10px;
@@ -324,6 +325,10 @@ section#home.card {
     background-color: #333;
 }
 
+.hidden {
+    opacity: 0; /* Escondido */
+    pointer-events: none; /* Impede interações enquanto está invisível */
+}
 /* Container das imagens (Slides) */
 .slides {
     display: flex;
