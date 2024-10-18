@@ -1,7 +1,7 @@
 /*Mensagem de redirecionamento para o whatsapp */
 
 document.getElementById('whatsappLink').onclick = function () {
-    preventDefault();
+    event.preventDefault();
 
     var tipo = document.querySelector('.cartao').getAttribute('data-tipo');
     var phoneNumber = '+5512997901291';
@@ -12,21 +12,24 @@ document.getElementById('whatsappLink').onclick = function () {
             message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
             break;
         case 'carro':
-            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            message = 'Olá, gostaria de um orçamento para carro!';
             break;
         case 'moto':
-            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            message = 'Olá, gostaria de um orçamento para moto!';
             break;
         case 'adicao-carro':
-            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            message = 'Olá, gostaria de um orçamento para adicionar carro, +B!';
             break;
         case 'adicao-moto':
-            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            message = 'Olá, gostaria de um orçamento para adicionar moto, +A!';
             break;
         default:
             message = 'Olá, gostaria de solicitar um orçamento!';
             break;
     }
+
+    var url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+    window.open(url, '_blank');
 
 };
 
