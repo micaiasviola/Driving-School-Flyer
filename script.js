@@ -1,8 +1,40 @@
+/*Mensagem de redirecionamento para o whatsapp */
+
+document.getElementById('whatsappLink').onclick = function () {
+    preventDefault();
+
+    var tipo = document.querySelector('.cartao').getAttribute('data-tipo');
+    var phoneNumber = '+5512997901291';
+    var message;
+
+    switch (tipo) {
+        case 'carro-e-moto':
+            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            break;
+        case 'carro':
+            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            break;
+        case 'moto':
+            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            break;
+        case 'adicao-carro':
+            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            break;
+        case 'adicao-moto':
+            message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+            break;
+        default:
+            message = 'Olá, gostaria de solicitar um orçamento!';
+            break;
+    }
+
+};
+
 //************** PAUSAR CARROSEL AO CLIQUE*/
 // Função para pausar o carrossel ao clicar em um link
 function pauseCarousels() {
     const carousels = document.querySelectorAll('.swiper-container');
-    
+
     carousels.forEach(carousel => {
         if (carousel.swiper) {
             carousel.swiper.autoplay.stop(); // Para a reprodução automática
@@ -13,7 +45,7 @@ function pauseCarousels() {
 // Função para retomar o carrossel
 function resumeCarousels() {
     const carousels = document.querySelectorAll('.swiper-container');
-    
+
     carousels.forEach(carousel => {
         if (carousel.swiper) {
             carousel.swiper.autoplay.start(); // Retoma a reprodução automática
@@ -43,7 +75,7 @@ function setupLinkHandlers() {
             e.preventDefault(); // Evita o comportamento padrão do clique
 
             pauseCarousels(); // Pausa o carrossel ao clicar no link
-            
+
             const targetId = link.getAttribute('href'); // Pega o ID da seção
             scrollToSection(targetId); // Chama a função para rolar até a seção
 

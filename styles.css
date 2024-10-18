@@ -726,6 +726,7 @@ hr.horizontal-line {
     border-radius: 15px;
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem;
     flex-direction: column;
     margin: 10px;
     /* Espaçamento entre as divs */
