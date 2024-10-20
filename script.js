@@ -1,8 +1,46 @@
+/*Mensagem de redirecionamento para o whatsapp */
+
+document.querySelectorAll('.whatsappLink').forEach(link => {
+    link.onclick = function (event) {
+        event.preventDefault(); // Previne o comportamento padrão do link
+
+        var tipo = this.closest('.cartao').getAttribute('data-tipo');
+        var phoneNumber = '+5512997901291';
+        var message;
+
+        switch (tipo) {
+            case 'carro-e-moto':
+                message = 'Olá, gostaria de um orçamento para carro e moto, A/B!';
+                break;
+            case 'carro':
+                message = 'Olá, gostaria de um orçamento para carro!';
+                break;
+            case 'moto':
+                message = 'Olá, gostaria de um orçamento para moto!';
+                break;
+            case 'adicao-carro':
+                message = 'Olá, gostaria de um orçamento para adicionar carro, +B!';
+                break;
+            case 'adicao-moto':
+                message = 'Olá, gostaria de um orçamento para adicionar moto, +A!';
+                break;
+            default:
+                message = 'Olá, gostaria de solicitar um orçamento!';
+                break;
+        }
+
+        var url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+        window.open(url, '_blank');
+    };
+});
+
+
+
 //************** PAUSAR CARROSEL AO CLIQUE*/
 // Função para pausar o carrossel ao clicar em um link
 function pauseCarousels() {
     const carousels = document.querySelectorAll('.swiper-container');
-    
+
     carousels.forEach(carousel => {
         if (carousel.swiper) {
             carousel.swiper.autoplay.stop(); // Para a reprodução automática
@@ -13,7 +51,7 @@ function pauseCarousels() {
 // Função para retomar o carrossel
 function resumeCarousels() {
     const carousels = document.querySelectorAll('.swiper-container');
-    
+
     carousels.forEach(carousel => {
         if (carousel.swiper) {
             carousel.swiper.autoplay.start(); // Retoma a reprodução automática
@@ -43,7 +81,7 @@ function setupLinkHandlers() {
             e.preventDefault(); // Evita o comportamento padrão do clique
 
             pauseCarousels(); // Pausa o carrossel ao clicar no link
-            
+
             const targetId = link.getAttribute('href'); // Pega o ID da seção
             scrollToSection(targetId); // Chama a função para rolar até a seção
 
@@ -160,7 +198,18 @@ const button = document.querySelector('.carrossel-btn');
 // Função para mostrar o botão ao clicar no carrossel
 carousel.addEventListener('click', function () {
     button.style.display = 'block'; // Exibe o botão
+    button.classList.remove('hidden'); // Garante que a classe "hidden" não esteja presente
+
+    // Define um temporizador para ocultar o botão após 5 segundos
+    setTimeout(function () {
+        button.classList.add('hidden'); // Adiciona a classe "hidden" para começar a transição
+        // Opcional: Esconder completamente após a transição
+        setTimeout(function () {
+            button.style.display = 'none'; // Oculta o botão do DOM
+        }, 500); // Tempo da transição
+    }, 5000);
 });
+
 
 // Função para ocultar o botão se o usuário clicar fora do carrossel
 document.addEventListener('click', function (event) {

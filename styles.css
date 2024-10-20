@@ -301,6 +301,7 @@ section#home.card {
 /* Botão que aparecerá ao clicar no carrossel */
 .carrossel-btn {
     display: none;
+    
     /* Inicialmente o botão está oculto */
     position: absolute;
     bottom: 10px;
@@ -324,6 +325,10 @@ section#home.card {
     background-color: #333;
 }
 
+.hidden {
+    opacity: 0; /* Escondido */
+    pointer-events: none; /* Impede interações enquanto está invisível */
+}
 /* Container das imagens (Slides) */
 .slides {
     display: flex;
@@ -378,14 +383,33 @@ section#home.card {
     flex-shrink: 0;
     /* Impede que o ícone encolha */
 }
-
-.lista-icones span {
-    color: black;
-    flex: 1;
-    /* Permite que o texto ocupe o espaço restante */
-    text-align: left;
-    /* Alinha o texto à esquerda */
+.hightlight {
+    font-size: 2em; /* Tamanho maior da fonte */
+    font-weight: bold; /* Negrito */
+    color: #ff0000; /* Cor vermelha para chamar atenção */
+    background-color: #ffff00; /* Fundo amarelo */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+    animation: pulse 1.5s infinite; /* Animação de pulsação */
+    align-items: center;
+    justify-content: center;
 }
+
+/* Animação de pulsação */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Aumenta ligeiramente */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 
 section#produtos {
     margin-top: 0.8rem;
@@ -726,6 +750,7 @@ hr.horizontal-line {
     border-radius: 15px;
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem;
     flex-direction: column;
     margin: 10px;
     /* Espaçamento entre as divs */
